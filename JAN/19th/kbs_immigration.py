@@ -3,27 +3,20 @@ def solution(n, times):
     answer = 0
     times.sort()
 
-    pl = 1
-    pr = times[-1] * n
-    mid = 0
+    pl = 0
+    pr = times[0] * n
 
-    if n == 1:
-        answer = times[0]
-        print(answer)
-        return answer
 
     while pl < pr:
         mid = (pl + pr) // 2
-        people = 0
+        sum = 0
         for time in times:
-            people += mid // time
-        if people < n:
+            sum += mid // time
+        if sum < n:
             pl = mid + 1
         else:
-            pr = mid - 1
+            pr = mid
         
-    answer = mid
-    print(answer)
-    return answer
+    
+    return (pl+pr) // 2
 
-solution(10, [1,5])
