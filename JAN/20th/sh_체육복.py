@@ -1,6 +1,6 @@
 def solution(n, lost, reserve):
     
-    lost.sort()a
+    lost.sort()
     reserve.sort()
     tmp=[]
     
