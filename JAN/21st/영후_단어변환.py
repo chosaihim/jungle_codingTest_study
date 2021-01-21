@@ -35,9 +35,6 @@ def solution(begin, target, words):
 			if (bitfield & 1 << i) == 0 and valid(word, content) :
 				stk.append(((bitfield | 1 << i), content, cnt + 1))
 
-		if not stk :
-			break
-
 	if min_value == 51 :
 		return 0
 	
