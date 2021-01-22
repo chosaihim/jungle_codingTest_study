@@ -15,6 +15,6 @@ def solution(s):
 		if s == '1' :
 			break
 
-	print([cnt1, cnt2])
+	return([cnt1, cnt2])
 
-solution(s)
+print(solution(s))
