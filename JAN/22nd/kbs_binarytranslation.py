@@ -25,7 +25,7 @@ def solution(s):
     translation(s)
 
     answer = [translation_cnt, zero_count]
-    print(answer)
+    # print(answer)
     return answer
 
-solution("110010101001")
+# solution("110010101001")

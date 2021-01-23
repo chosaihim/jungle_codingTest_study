@@ -18,3 +18,4 @@ def solution(s):
 	return([cnt1, cnt2])
 
 print(solution(s))
+	
