@@ -8,7 +8,6 @@ def solution(n, edge):
     graph = [[] for _ in range(n+1)]
     dist = [0 for _ in range(n+1)]
     visited= [0 for _ in range(n+1)]
-    max_depth = 0
 
     for ed in edge:
         graph[ed[0]].append(ed[1])
