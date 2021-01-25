@@ -35,6 +35,4 @@ while que:
             if visited[l] == 0:
                 visited[l] = 1
                 que.append(l)
-
-
 print(cand)
