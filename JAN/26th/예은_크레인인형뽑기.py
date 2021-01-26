@@ -28,27 +28,3 @@ moves = [1,5,3,5,1,2,1,4]
 # list 크기 == 0 이면 아무것도 안한다
 # moves 에 해당되는 스택에서 pop해서 결과 배열에 넣는다
 # 같은 원소가 연속되면 사라지게하고 카운트 +2
-
-# print(solution(board, moves))
-
-stack = [[] for _ in range(len(board) + 1)]
-result = []
-answer = 0
-
-for j in range(len(board)):
-    for i in range(len(board) - 1, -1, -1):
-        if (board[i][j] == 0):
-            continue
-        stack[j + 1].append(board[i][j])
-
-for i in range(len(moves)):
-    if len(stack[moves[i]]) == 0:
-        continue
-    result.append(stack[moves[i]].pop())
-    if i > 0:
-        if (result[-1] == result[-2]):
-            result.pop()
-            result.pop()
-            answer += 2
-
-print(answer)
