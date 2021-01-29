@@ -15,7 +15,6 @@ def find(N, number):
     def is_visited(key, visited, prev, cnt):
         a = visited.get(key, 0)
         if a == 0:
-            print("hi")
             prev[cnt].append(key)
             visited[key] = 1
             return
@@ -23,19 +22,16 @@ def find(N, number):
             return
     # cnt 2 부터 시작한다.
     while cnt < 8:
-        print("prev:", prev)
         cnt += 1
         lp = 1
         rp = cnt-1
         while lp < cnt:
             for i in prev[lp]:
                 for j in prev[rp]:
-                    print("i:",i,"j:",j)
                     if lp + rp > 8:
                         continue
                     # 더하기
                     new = i + j
-                    print("new:", new)
                     if new == number:
                         return cnt
                     is_visited(new, visited, prev, cnt)
@@ -63,7 +59,6 @@ def find(N, number):
             lp += 1
             rp -= 1
         setting = 10**(cnt-1)*N+setting
-        print("cnt:", cnt, "setting:", setting)
         prev[cnt].append(setting)
         if setting == number:
             return cnt
