@@ -14,6 +14,7 @@ def solution(relation):
             answer += 1
             column_list.remove(i)
     havetocheck_list = []
+    
     if len(column_list) >= 2:
         two_combilist = list(combinations(column_list,2))
         print(two_combilist)
