@@ -39,5 +39,4 @@ relation = [["100","ryan","music","2"],
             ["500","muzi","music","3"],
             ["600","apeach","music","2"]]
 
-print(solution(relation))
-
+print(solution(relation)
