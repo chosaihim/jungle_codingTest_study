@@ -46,7 +46,7 @@ def solution(relation):
                     for key_cmp, value_cmp in chk_dic.items():
                         if key_origin != key_cmp and value_origin == value_cmp:
                             is_unique = False
-                    
+
                     if is_unique:
                         uniq = uniq | (1<<key_origin)
 
@@ -64,7 +64,8 @@ def solution(relation):
         for cur_num in range((1<<q-1), (1<<len_y)):
             attri_idx = []
             one_chk = 0
-            
+            skip = False
+
             # cur_num 1 갯수 검사
             for e in range(len_y):
                 if cur_num & (1<<e):
@@ -73,10 +74,9 @@ def solution(relation):
 
             # 1의 갯수 검사
             if q != one_chk:
-                continue
+                skip = True
 
             # 중복 검사
-            skip = False
             for key in cand_key.keys():
                 if key & cur_num == key:
                     skip = True
