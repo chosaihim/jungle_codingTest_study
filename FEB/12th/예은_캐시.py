@@ -12,16 +12,12 @@ def solution(cacheSize, cities):
         for i in range(1, len(cities)):
             if cities[i] in cities_deque:
                 cities_deque.remove(cities[i])
-                cities_deque.append(cities[i])
                 answer += 1
             else:
                 if len(cities_deque) == cacheSize:
                     cities_deque.popleft()
-                    cities_deque.append(cities[i])
-                    answer += 5
-                else:
-                    cities_deque.append(cities[i])
-                    answer += 5
+                answer += 5
+            cities_deque.append(cities[i])
     return answer
 
 # test1
