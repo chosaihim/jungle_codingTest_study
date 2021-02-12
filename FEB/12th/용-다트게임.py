@@ -15,13 +15,17 @@ def solution(dartResult):
             continue
 
         # 숫자인가요
-        if dart[i] == "1":
+        elif dart[i] == "0":
+            number.append(0)
+        
+        elif dart[i] == "1":
             if i + 1 < len(dart):
                 if dart[i+1] == "0":
                     number.append(10)
                     skip = True
                 else:
                     number.append(1)
+
             
         elif dart[i] == "2":
             number.append(2)
