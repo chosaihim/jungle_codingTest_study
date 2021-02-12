@@ -55,9 +55,8 @@ def solution(lines):
 
     parse(lines,log)
     heap = []
-    print(log)
 
-    # log = [시작한 시간, 끝난 시간]
+    # log = [시작한 시간, 끝난 시간 + 1초]
     max_len = 0
     while log:
         tmp = heapq.heappop(log)
