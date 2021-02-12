@@ -7,10 +7,10 @@ n = 6
 board =  ['ABCD', 'BACE', 'BCDD', 'BCDD']
 board = ['AABBEE','AAAEEE','VAAEEV','AABBEE','AACCEE','VVCCEE' ]
 
-# 1. 전체를 탐색하면서 2x2 탐색
-# 2. 2x2를 탐색하면 set 자료구조에 위치 추가
-# 3. set에서 하나씩 pop하면서 위에서 블록을 땡겨옴
-# 4. set이 없어질 때 까지 반복 
+# 1. 전체를 탐색하면서 지울 블록 탐색
+# 2. 지울 블록이 있으면 등록 (바로 지우는 것이 아님)
+# 3. 전체를 다 탐색했으면, 지울 블록을 -1로 만듬 
+# 4. -1 위에 블록이 있다면 블록을 내림 
 
 from collections import deque
 
