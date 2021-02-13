@@ -5,12 +5,16 @@ musicinfos = ["12:00,12:14,HELLO,C#DEFGAB", "13:00,13:05,WORLD,ABCDEF"]
 m = "ABC"
 musicinfos = ["00:00,00:05,HI,ABC#"]
 
+m = 'A#'
+musicinfos = ['13:00,13:02,HAPPY,B#A#']
+
 def parsing(time):
     part_time = time.split(":")
     return int(part_time[0])*60+int(part_time[1])
 
 def find(m1,m2,start,end):
-    time = end - start
+    time = end - start + m2.count('#')
+
     # 뮤직 스타트
     i = 0
     # m2를 재생하면서
