@@ -1,3 +1,5 @@
+# https://programmers.co.kr/learn/courses/30/lessons/17683
+
 # case 3
 m = "ABC"
 musicinfos = ["12:00,12:14,HELLO,C#DEFGAB", "13:00,13:05,WORLD,ABCDEF"]
