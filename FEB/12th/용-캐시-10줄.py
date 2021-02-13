@@ -5,7 +5,6 @@ from collections import deque
 
 def solution(cacheSize, cities):
     cash = deque(maxlen=cacheSize)
-
     answer = 0
     for i in cities:
         tmp = i.lower()
@@ -15,5 +14,4 @@ def solution(cacheSize, cities):
         else:
             answer += 5
         cash.append(tmp)
-
     return answer

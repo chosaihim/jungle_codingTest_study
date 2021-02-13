@@ -14,6 +14,7 @@ def solution(dartResult):
             skip = False
             continue
 
+
         # 숫자인가요
         elif dart[i] == "0":
             number.append(0)
@@ -26,7 +27,7 @@ def solution(dartResult):
                 else:
                     number.append(1)
 
-            
+
         elif dart[i] == "2":
             number.append(2)
 
@@ -51,7 +52,6 @@ def solution(dartResult):
         elif dart[i] == "9":
             number.append(9)
 
-        
         # SDT
         elif dart[i] == "S":
             continue
