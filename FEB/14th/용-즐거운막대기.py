@@ -30,7 +30,6 @@ def leftright(order):
     while sum(order) > 0:
         left = 1
         right = 1
-        print('cursor:', cursor)
 
         # 좌탐색
         while order[cursor - left] == 0:
