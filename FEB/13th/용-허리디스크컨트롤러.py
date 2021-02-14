@@ -13,7 +13,6 @@ def solution(jobs):
     total = 0
     wait = []
 
-    
 
     while jobs:
         # 만약 중간에 wait가 비어있다면, 시작 시간이 제일 빠른 작업을 넣는다. 

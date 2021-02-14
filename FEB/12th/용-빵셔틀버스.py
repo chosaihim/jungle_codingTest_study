@@ -1,3 +1,5 @@
+# https://programmers.co.kr/learn/courses/30/lessons/17678
+
 n = 1
 t = 1
 m = 5
@@ -7,11 +9,8 @@ timetable = ["23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:
 timetable = ["00:01", "00:01", "00:01", "00:01", "00:01"]
 from collections import deque
 
-# 버스의 모든 자리가 다 차는 경우 : 제일 늦은 사람보다 1분 빨리
-# 버스에 자리가 비어있는 경우 : 가장 늦은 버스 
 
-
-def real(n, t, m, timetable):
+def time_parsing(timetable):
     time = []
     for i in timetable:
         split = i.split(":")
@@ -23,20 +22,48 @@ def real(n, t, m, timetable):
             time.append(hour+mini)
 
     time.sort()
-    time = deque(time)
+    return time
 
-    bus_time = []
+
+def bus(n, t):
+    bus_table = []
     for i in range(n):
-        bus_time.append(9*60 + t*i)
+        bus_table.append(9*60+i*t)
+    print('bus_table:', bus_table)
+    return bus_table
 
-    bus_cnt = m * n
+# 무지는 무조건 마지막 버스 마지막 자리에 타야한다.
+# 앞의 대기자들은 모두 버스에 태운다.
+# 마지막 버스에서 남은 자리가 있으면 마지막 버스 도착 시간에 무지를 태운다.
+# 아니라면 마지막 탑승자보다 1분 빨리 도착한다.
+def find(time_table, bus_table, n, t, m):
+    time_table = deque(time_table)
+    # 마지막 버스까지 태워본다. 
+    for i in range(len(bus_table)):
+        seat = 0
+        while time_table and time_table[0] <= bus_table[i] and seat < m:
+            tmp = time_table.popleft()
+            seat += 1
+    print(seat)
+    if seat < m:
+        return bus_table[i]
+    else:
+        return tmp-1
 
-    while time = 
+    
+    
+
+        
+        
+
 
 
 
 def solution(n, t, m, timetable):
-    that_time = real(n, t, m, timetable)
+    time_table = time_parsing(timetable)
+    bus_table = bus(n, t)
+
+    that_time = find(time_table, bus_table, n, t, m)
 
     if that_time//60 < 10:
         that_hour = '0' + str(that_time//60)
