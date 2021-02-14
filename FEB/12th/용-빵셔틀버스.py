@@ -7,9 +7,10 @@ timetable = ["08:00", "08:01", "08:02", "08:03"]
 timetable = ["23:59"]
 timetable = ["23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59"]
 timetable = ["00:01", "00:01", "00:01", "00:01", "00:01"]
+
+
+
 from collections import deque
-
-
 def time_parsing(timetable):
     time = []
     for i in timetable:
@@ -29,7 +30,6 @@ def bus(n, t):
     bus_table = []
     for i in range(n):
         bus_table.append(9*60+i*t)
-    print('bus_table:', bus_table)
     return bus_table
 
 # 무지는 무조건 마지막 버스 마지막 자리에 타야한다.
@@ -44,27 +44,13 @@ def find(time_table, bus_table, n, t, m):
         while time_table and time_table[0] <= bus_table[i] and seat < m:
             tmp = time_table.popleft()
             seat += 1
-    print(seat)
     if seat < m:
         return bus_table[i]
     else:
         return tmp-1
 
-    
-    
 
-        
-        
-
-
-
-
-def solution(n, t, m, timetable):
-    time_table = time_parsing(timetable)
-    bus_table = bus(n, t)
-
-    that_time = find(time_table, bus_table, n, t, m)
-
+def timetostr(that_time):
     if that_time//60 < 10:
         that_hour = '0' + str(that_time//60)
     else:
@@ -76,5 +62,13 @@ def solution(n, t, m, timetable):
         that_min = str(that_time%60)
     answer = that_hour + ":" + that_min
     return answer
+
+def solution(n, t, m, timetable):
+    time_table = time_parsing(timetable)
+    bus_table = bus(n, t)
+
+    that_time = find(time_table, bus_table, n, t, m)
+
+    return timetostr(that_time)
 
 print(solution(n, t, m, timetable))
