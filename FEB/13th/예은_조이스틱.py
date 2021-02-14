@@ -38,5 +38,5 @@ name = "JEROEN"
 # name = "ZZAAAZ" # 답 6     반례 ( 다시 돌아가야하는 경우) -> 재귀 ?
 name = "AAAAA"
 # name = "ZAAAZZ"
-
+name = 'BBBAAB'
 print(solution(name))
