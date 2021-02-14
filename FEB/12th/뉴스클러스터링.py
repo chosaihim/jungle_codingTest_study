@@ -1,3 +1,7 @@
+
+str1 = "aa1+aa2"
+str2 = "AAAA12"
+
 def makeSet(save,str_input):
     dic = {}
     for i in range(len(str_input)-1):
@@ -21,6 +25,8 @@ def solution(str1, str2):
     save2 = set()     
     makeSet(save1, str1)
     makeSet(save2, str2)
+    print(save1)
+    print(save2)
 
     union = len(save1 | save2) 
     intersection = len(save1 & save2) 
@@ -28,3 +34,5 @@ def solution(str1, str2):
     if not union and not intersection:
         return 65536
     return int(intersection/union * 65536)
+
+print(solution(str1,str2))

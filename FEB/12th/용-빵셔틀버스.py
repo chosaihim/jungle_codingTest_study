@@ -66,7 +66,6 @@ def timetostr(that_time):
 def solution(n, t, m, timetable):
     time_table = time_parsing(timetable)
     bus_table = bus(n, t)
-
     that_time = find(time_table, bus_table, n, t, m)
 
     return timetostr(that_time)
