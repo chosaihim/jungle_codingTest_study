@@ -1,50 +1,38 @@
+# https://programmers.co.kr/learn/courses/30/lessons/64062
 # 제일 작은 수를 찾는다. (a)
 
 k = 3
 stones = [2, 4, 5, 3, 2, 1, 4, 2, 5, 1]
 
-from collections import deque
-import heapq
+# 이분탐색
+# 연속 k번으로 인원수 - 돌 높이 <= 0 이면, 뛸 수 없으므로 인원수 감소
+# 연속 k번으로 인원수 - 돌 높이 > 0 이면, 충분하므로 인원수 증가
+
+# bool : True = 인원수를 늘림 // False = 인원수를 감소
+def binary(crew, stones, k):
+    flag = k
+    for height in stones:
+        if flag == 0:
+            return False
+        if height - crew <= 0:
+            flag -= 1
+        else:
+            flag = k
+    if flag == 0:
+            return False
+    return True
+
+
+
 def solution(stones, k):
-    # 1. 일단 제일 작은 수(n1)를 찾는다. 
-    # 2. 그 idx에서 왼쪽으로 k-1번째, 오른쪽으로 k-1번째를 찾아 각각의 최대수를 heap에 넣는다.
-    # 3. 최대수들 중, 최소수가 answer이다.
-    que = deque()
-    minimum = 200000001
-
-    cnt = 1
-    # 첫 원소 추출
-    for i in range(len(stones)):
-        tmp = stones[i]
-        if tmp > minimum: continue
-        elif tmp < minimum:
-            minimum = tmp
-            que.clear()
-        que.append(i)
-
-    heap = []
-    while que:
-        tmp = que.popleft()
-        maximum = 0
-        for i in range(1, k):
-            # 왼쪽
-            if tmp-i < 0: continue
-            elif stones[tmp-i] > maximum:
-                maximum = stones[tmp-i]
-        if maximum != 0:
-            heapq.heappush(heap, maximum)
-
-        maximum = 0
-        for i in range(1, k):
-            # 오른쪽
-            if tmp+i > len(stones)-1: continue
-            elif stones[tmp+i] > maximum:
-                maximum = stones[tmp+i]
-        if maximum != 0:
-            heapq.heappush(heap, maximum)
-        
-    answer = heap[0]
-        
-    return answer
+    left = 1
+    right = 200000000
+    while left <= right:
+        mid = (left + right) // 2
+        if binary(mid, stones, k):
+            left = mid + 1
+        else:
+            right = mid - 1
+    return left
 
 print(solution(stones,k))

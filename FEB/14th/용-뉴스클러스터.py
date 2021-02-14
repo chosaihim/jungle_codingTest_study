@@ -35,9 +35,9 @@ def solution(str1, str2):
     plus = string1 | string2
     share = string1 & string2
     if len(share) == 0 and len(plus) == 0:
-        return 65535
+        return 65536
     else:
-        answer = int(len(share)/len(plus)*65535)
+        answer = int(len(share)/len(plus)*65536)
         return answer
 
 print(solution(str1,str2))
