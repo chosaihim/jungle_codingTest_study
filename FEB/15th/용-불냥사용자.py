@@ -47,10 +47,9 @@ def DFS(id_list, ban_list, trash_bin, final):
             tmp_trash = list(trash_bin)
             final.append(trash_bin)
             answer += 1
-
-
-
         return
+
+
     cur_ban = ban_list.pop()
     for a_id in id_list:
         if compare(a_id, cur_ban):
@@ -63,10 +62,6 @@ def DFS(id_list, ban_list, trash_bin, final):
             new_trash_bin.add(trash_word)
 
             new_ban_list = ban_list[:]
-            # print('----------------------------------------------------------------------------')
-            # print('cur_ban:', cur_ban, 'id_remove:', a_id)
-            # print('id_list:', id_list)
-            # print('ban_list:', ban_list)
             DFS(new_id_list, new_ban_list, new_trash_bin, final)
 
     
@@ -85,7 +80,7 @@ def solution(user_id, banned_id):
     id_list = parsing(user_id)
     ban_list = parsing(banned_id)
     DFS(id_list, ban_list, trash_bin, final)
-    print(final)
+    # print(final)
     return answer
 
 print(solution(user_id, banned_id))
