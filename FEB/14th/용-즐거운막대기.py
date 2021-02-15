@@ -1,3 +1,5 @@
+# https://programmers.co.kr/learn/courses/30/lessons/42860
+
 name = "JAZ"
 # name = 'BBABA'
 # name = 'BBBAAB'
