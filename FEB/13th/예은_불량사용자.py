@@ -19,8 +19,8 @@ def solution(user_id, banned_id):
             if flag:
                 one_voca_cand.append(user)
         cand.append(one_voca_cand)
-
-    real_cand = list(product(*cand))
+    print(cand)
+    real_cand = list(product(*cand)) # product 사용하면 시간초과 날수밖에 없는듯 (product 시간 오지게 김)
     # real_cand.sort()
     for one in real_cand:
         one = set(one)
